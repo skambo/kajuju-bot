@@ -10,7 +10,11 @@ const { matchFaq } = require('./faqs');
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai;
+function getOpenAI() {
+  if (!openai) openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return openai;
+}
 
 const SYSTEM_PROMPT = `You are a friendly and professional assistant for Idan Barn Suites & Café, a boutique lodge at the base of Mt. Kenya in Naromoru, Kenya.
 Answer guest questions helpfully and warmly. Keep responses concise — this is WhatsApp.
@@ -57,7 +61,7 @@ app.post('/webhook', async (req, res) => {
 
   // Fall back to OpenAI for anything unmatched
   try {
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
       model: 'gpt-4o',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
