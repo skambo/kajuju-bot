@@ -5,16 +5,18 @@ const FAQS = [
 
   {
     keywords: [
-      'lodge a complaint', 'file a complaint', 'formal complaint',
+      'i have a complaint', 'lodge a complaint', 'file a complaint', 'formal complaint',
       'terrible experience', 'awful experience', 'bad experience at',
       'deeply disappointed', 'very disappointed', 'extremely disappointed',
-      'poor service', 'terrible service', 'awful service',
+      'poor service', 'terrible service', 'awful service', 'service was slow', 'slow service',
+      'food was bad', 'food was terrible', 'food was awful', 'food was disappointing', 'bad food',
       'unacceptable', 'this is not okay', 'this is not right',
       'not happy with the room', 'not happy with the service',
       'not happy with the food', 'not happy with my stay',
       'not satisfied with',
       'no hot water', 'hot water not working',
       'broken in my room', 'not working in my room', 'doesn\'t work in my room',
+      'staff was rude', 'rude staff',
     ],
     notificationType: 'complaint',
     response: `We are really sorry to hear this — it is not the experience we want for you at all. We are looking into this and will be in touch shortly.`,
@@ -297,6 +299,37 @@ Ready to book? Pick your dates here:
 https://rates.idanbarnsuites.com/book
 
 Or share your preferred dates and room type and we'll get back to you!`,
+  },
+
+  // ── Positive feedback ───────────────────────────────────────────────────────
+
+  {
+    keywords: [
+      'great service', 'good service', 'amazing service', 'excellent service', 'wonderful service',
+      'great stay', 'amazing stay', 'wonderful stay', 'loved our stay', 'loved my stay',
+      'loved it', 'we loved', 'highly recommend', 'fantastic', 'brilliant',
+      'great experience', 'wonderful experience', 'best place',
+      '5 star', 'five star', 'loved the food', 'loved the staff',
+    ],
+    response: `Thank you so much — that means a lot to us. We hope to welcome you back soon.`,
+  },
+
+  // ── Review request ──────────────────────────────────────────────────────────
+
+  {
+    keywords: [
+      'leave a review', 'write a review', 'review link',
+      'google review', 'booking.com review', 'where can i review',
+      'how do i leave a review', 'where do i leave a review',
+    ],
+    response: `Thank you for staying with us at Idan Barn Suites & Cafe. We hope you had a wonderful time and we'd love to see you again.
+
+If you enjoyed your stay, we'd really appreciate it if you could leave us a review — it goes a long way in helping other guests find us.
+
+Google: [GOOGLE_REVIEW_LINK]
+Booking.com: [BOOKINGCOM_REVIEW_LINK]
+
+Safe travels and we hope to welcome you back soon.`,
   },
 ];
 
